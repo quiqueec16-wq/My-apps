@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Incidencias | Residencial</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="dark">
+    <div class="background-glow" aria-hidden="true"></div>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Residencial Premium</p>
+          <h1>Panel de incidencias</h1>
+        </div>
+        <nav class="menu" aria-label="Menú principal">
+          <a href="#registro">Registrar</a>
+          <a href="#historial">Historial</a>
+          <a href="#ajustes">Ajustes</a>
+        </nav>
+      </header>
+
+      <section class="card" id="registro">
+        <h2>Nuevo reporte</h2>
+        <p class="subtitle">Identifícate y cuéntanos qué está pasando en tu piso alquilado.</p>
+        <form id="issue-form">
+          <div class="field-grid">
+            <label>
+              Nombre completo
+              <input type="text" id="tenant-name" placeholder="Ej. Laura Pérez" required />
+            </label>
+            <label>
+              Identificación (DNI/NIE)
+              <input type="text" id="tenant-id" placeholder="Ej. 12345678A" required />
+            </label>
+            <label>
+              Piso / Apartamento
+              <input type="text" id="tenant-floor" placeholder="Ej. 4B" required />
+            </label>
+          </div>
+
+          <label>
+            Problema detectado
+            <textarea
+              id="tenant-issue"
+              rows="5"
+              placeholder="Describe el problema: agua, electricidad, climatización, etc."
+              required
+            ></textarea>
+          </label>
+
+          <button type="submit" class="primary-btn">Enviar incidencia</button>
+        </form>
+      </section>
+
+      <section class="card" id="historial">
+        <div class="section-head">
+          <h2>Historial reciente</h2>
+          <button id="clear-history" class="ghost-btn" type="button">Limpiar</button>
+        </div>
+        <ul id="issues-list" class="issues-list" aria-live="polite"></ul>
+      </section>
+
+      <section class="card" id="ajustes">
+        <h2>Ajustes</h2>
+        <div class="theme-setting">
+          <div>
+            <p class="setting-title">Tema de la app</p>
+            <p class="subtitle">Elige entre modo claro u oscuro para tu experiencia.</p>
+          </div>
+          <button id="theme-toggle" type="button" class="primary-btn secondary">Cambiar a claro</button>
+        </div>
+      </section>
+    </main>
+
+    <template id="issue-item-template">
+      <li class="issue-item">
+        <p class="issue-topline"></p>
+        <p class="issue-text"></p>
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
